@@ -1,4 +1,4 @@
-import React, {Suspense, useContext, useState} from 'react';
+import {Suspense, useContext, useState} from 'react';
 import {OrbitControls, useGLTF} from '@react-three/drei';
 import {Canvas} from "@react-three/fiber";
 import Hotspot, {HotspotProps} from "../hotspots/hotspots";
@@ -24,6 +24,8 @@ const ThreeDConfigurator = () => {
     const {setSubproductView, hotspotId, setHotspotId} = useContext<any>(SubProductContext);
     const [position, setPosition] = useState([-3, 0, -2]);
     const [clicked, setClicked] = useState(false);
+
+    console.log(position);
 
     const handleHotspotClick = (id: any, position: any) => {
         if (hotspotId === 0 || hotspotId !== id) {

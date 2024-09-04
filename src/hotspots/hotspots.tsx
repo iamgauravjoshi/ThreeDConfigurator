@@ -1,12 +1,11 @@
-import React, {useEffect, useState} from 'react';
-
+import {useEffect, useState} from 'react';
 
 export interface HotspotProps {
     id: number;
     position: [number, number, number];
 }
 
-const Hotspot = ({position, onClick}:any) => {
+const Hotspot = ({position, onClick}: any) => {
     const [hover, setHover] = useState(false);
 
     useEffect(() => {
@@ -22,7 +21,7 @@ const Hotspot = ({position, onClick}:any) => {
             scale={hover ? [1.5, 1.5, 1.5] : [1, 1, 1]}
         >
             <sphereGeometry args={[0.06, 32, 32]}/>
-            <meshStandardMaterial color={hover ? '#d90429': '#ef233c'}/>
+            <meshStandardMaterial color={hover ? '#d90429' : '#ef233c'}/>
         </mesh>
     );
 };

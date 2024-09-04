@@ -1,6 +1,6 @@
-import React, {Suspense, useContext, useState} from 'react';
+import {Suspense, useContext, useState} from 'react';
 import {Canvas} from "@react-three/fiber";
-import {OrbitControls, PerspectiveCamera, useGLTF} from '@react-three/drei';
+import {OrbitControls, useGLTF} from '@react-three/drei';
 import SubProductContext from "../context/SubproductContext";
 import Hotspot, {HotspotProps} from "../hotspots/hotspots";
 import DemoImages from "./DemoImages";
@@ -14,11 +14,13 @@ const SkidSteerHotspots: HotspotProps[] = [
     {id: 5, position: [0, 0, 2]},
 ];
 
-const SkidSteerModel: React.FC = () => {
+const SkidSteerModel = () => {
     const {scene} = useGLTF('/assets/skid_steer.glb');
     const {setSubproductView, hotspotId, setHotspotId} = useContext<any>(SubProductContext);
     const [position, setPosition] = useState([-3, 0, -2]);
     const [clicked, setClicked] = useState(false);
+
+    console.log(position);
 
     const handleHotspotClick = (id: any, position: any) => {
         if (hotspotId === 0 || hotspotId !== id) {

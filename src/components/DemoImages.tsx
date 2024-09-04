@@ -1,6 +1,5 @@
-import React, {Suspense, useContext} from 'react'
+import {useContext} from 'react'
 import '../App.scss';
-import {X} from "lucide-react";
 import SubProductContext from "../context/SubproductContext";
 import {motion, AnimatePresence} from "framer-motion";
 
