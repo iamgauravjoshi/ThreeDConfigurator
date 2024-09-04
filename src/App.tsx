@@ -11,8 +11,8 @@ function App() {
             <Routes>
                 <Route path='/' element={<LayoutTemplate/>}>
                     <Route path='/' element={<ThreeDConfigurator/>}/>
-                    <Route path='/dump-truck' element={<ThreeDConfigurator/>}/>
-                    <Route path='/skid-steer' element={<SkidSteerModel/>}/>
+                    <Route path='dump-truck' element={<ThreeDConfigurator/>}/>
+                    <Route path='skid-steer' element={<SkidSteerModel/>}/>
                 </Route>
                 <Route path='*' element={<ErrorPage/>}/>
             </Routes>
