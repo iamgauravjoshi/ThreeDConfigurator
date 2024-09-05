@@ -28,7 +28,6 @@ function DemoImages() {
                     {
                         hotspotId === 1 &&
                         <>
-                            <img src='/images/image-01.jpg' alt={'Image-01'}/>
                             <img src='/images/image-02.jpg' alt={'Image-02'}/>
                             <img src='/images/image-06.jpg' alt={'Image-06'}/>
                             <img src='/images/image-04.jpg' alt={'Image-04'}/>
@@ -37,16 +36,17 @@ function DemoImages() {
                     {
                         hotspotId === 2 &&
                         <>
-                            <img src='/images/image-03.jpg' alt={'Image-01'}/>
-                            <img src='/images/image-04.jpg' alt={'Image-02'}/>
+                            <img src='/images/komatsu-01.jpg' alt={'komatsu-01'}/>
+                            <img src='/images/komatsu-06.jpg' alt={'komatsu-06'}/>
+                            <img src='/images/komatsu-02.avif' alt={'komatsu-02'}/>
                         </>
                     }
                     {
                         hotspotId === 3 &&
                         <>
-                            <img src='/images/image-06.jpg' alt={'Image-06'}/>
-                            <img src='/images/image-02.jpg' alt={'Image-02'}/>
-                            <img src='/images/image-01.jpg' alt={'Image-01'}/>
+                            <img src='/images/komatsu-01.jpg' alt={'komatsu-01'}/>
+                            <img src='/images/komatsu-06.jpg' alt={'komatsu-06'}/>
+                            <img src='/images/komatsu-02.avif' alt={'komatsu-02'}/>
                         </>
                     }
                     {
@@ -54,23 +54,23 @@ function DemoImages() {
                         <>
                             <img src='/images/image-05.jpg' alt={'Image-05'}/>
                             <img src='/images/image-06.jpg' alt={'Image-06'}/>
-                            <img src='/images/image-07.jpg' alt={'Image-07'}/>
+                            <img src='/images/komatsu-03.jpg' alt={'komatsu-03'}/>
                         </>
                     }
                     {
                         hotspotId === 5 &&
                         <>
                             <img src='/images/image-03.jpg' alt={'Image-01'}/>
-                            <img src='/images/image-01.jpg' alt={'Image-02'}/>
+                            <img src='/images/komatsu-05.jpg' alt={'komatsu-05'}/>
+                            <img src='/images/komatsu-04.jpg' alt={'komatsu-04'}/>
                         </>
                     }
                     {
                         hotspotId === 6 &&
                         <>
-                            <img src='/images/image-01.jpg' alt={'Image-01'}/>
-                            <img src='/images/image-02.jpg' alt={'Image-02'}/>
+                            <img src='/images/komatsu-04.jpg' alt={'komatsu-04'}/>
                             <img src='/images/image-06.jpg' alt={'Image-06'}/>
-                            <img src='/images/image-04.jpg' alt={'Image-04'}/>
+                            <img src='/images/komatsu-06.jpg' alt={'komatsu-06'}/>
                         </>
                     }
                     {
@@ -83,17 +83,23 @@ function DemoImages() {
                     {
                         hotspotId === 8 &&
                         <>
-                            <img src='/images/image-06.jpg' alt={'Image-06'}/>
-                            <img src='/images/image-02.jpg' alt={'Image-02'}/>
-                            <img src='/images/image-01.jpg' alt={'Image-01'}/>
+                            <img src='/images/komatsu-07.jpg' alt={'komatsu-07'}/>
+                            <img src='/images/komatsu-04.jpg' alt={'komatsu-04'}/>
+                            <img src='/images/komatsu-01.jpg' alt={'komatsu-01'}/>
                         </>
                     }
                     {
                         hotspotId === 9 &&
                         <>
-                            <img src='/images/image-05.jpg' alt={'Image-05'}/>
-                            <img src='/images/image-06.jpg' alt={'Image-06'}/>
-                            <img src='/images/image-07.jpg' alt={'Image-07'}/>
+                            <img src='/images/image-01.jpg' alt={'Image-01'}/>
+                            <img src='/images/komatsu-03.jpg' alt={'komatsu-03'}/>
+                        </>
+                    }
+                    {
+                        hotspotId === 10 &&
+                        <>
+                            <img src='/images/komatsu-05.jpg' alt={'komatsu-05'}/>
+                            <img src='/images/komatsu-06.jpg' alt={'komatsu-06'}/>
                         </>
                     }
 

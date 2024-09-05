@@ -5,7 +5,7 @@ export interface HotspotProps {
     position: [number, number, number];
 }
 
-const Hotspot = ({position, onClick}: any) => {
+const Hotspot = ({position, onClick, geometryArgs=[0.06, 32, 32], color="#ef233c"}: any) => {
     const [hover, setHover] = useState(false);
 
     useEffect(() => {
@@ -20,8 +20,8 @@ const Hotspot = ({position, onClick}: any) => {
             onPointerOut={() => setHover(false)}
             scale={hover ? [1.5, 1.5, 1.5] : [1, 1, 1]}
         >
-            <sphereGeometry args={[0.06, 32, 32]}/>
-            <meshStandardMaterial color={hover ? '#d90429' : '#ef233c'}/>
+            <sphereGeometry args={geometryArgs}/>
+            <meshStandardMaterial color={hover ? '#d90429' : color}/>
         </mesh>
     );
 };
