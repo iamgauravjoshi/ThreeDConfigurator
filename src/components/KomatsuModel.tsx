@@ -45,13 +45,13 @@ const KomatsuModel = () => {
         <>
             <Canvas
                 className='demo__product-canvas min-h-screen'
-                camera={{position: [-2, 6, 10], fov: 60}}
+                camera={{position: [-1, 4, 10], fov: 60}}
                 // camera={{position: [0, 0, 0], fov: 80}}
             >
                 <ambientLight intensity={2} color='#FFFFFF' />
                 <Suspense fallback={<CanvasLoader/>}>
                     {/*<color attach="background" args={['#F1F1F1']} />*/}
-                    <primitive object={fbx} position={[-4, -1.25, 0]} rotation={[Math.PI / 2, 0, 0]}/>
+                    <primitive object={fbx} position={[0, -1.25, 0]} rotation={[Math.PI / 2, 0, 0]}/>
                     {KomatsuModelHotspots.map((hotspot, index) => (
                         <Hotspot
                             key={index}
