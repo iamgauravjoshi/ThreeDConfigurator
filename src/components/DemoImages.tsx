@@ -21,7 +21,7 @@ function DemoImages() {
                     initial={{opacity: 0, x: 100}}
                     animate={{opacity: 1, x: 0}}
                     exit={{opacity: 0, x: 100}}
-                    transition={{duration: 1.2}}
+                    transition={{duration: 0.8}}
                 >
                     {/*<X size={30} className={'demo__subproduct-close'} onClick={handleClose}/>*/}
                     <button className={'demo__subproduct-close'} onClick={handleClose}>X</button>

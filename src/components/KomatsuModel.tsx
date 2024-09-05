@@ -1,6 +1,6 @@
-import {Suspense, useContext, useState} from 'react';
+import {Suspense, useContext} from 'react';
 import {Canvas} from "@react-three/fiber";
-import {OrbitControls, useFBX, useProgress, Html} from '@react-three/drei';
+import {OrbitControls, Sky, useFBX} from '@react-three/drei';
 import DemoImages from "./DemoImages";
 import Hotspot, {HotspotProps} from "../hotspots/hotspots";
 import SubProductContext from "../context/SubproductContext";
@@ -21,22 +21,22 @@ const KomatsuModelHotspots: HotspotProps[] = [
 
 const KomatsuModel = () => {
     let fbx = useFBX('/assets/model.fbx');
-    const {setSubproductView, hotspotId, setHotspotId} = useContext<any>(SubProductContext);
-    const [position, setPosition] = useState([-3, 0, -2]);
-    const [clicked, setClicked] = useState(false);
+    const {subproductView, setSubproductView, hotspotId, setHotspotId} = useContext<any>(SubProductContext);
 
-    console.log(position);
-
-    const handleHotspotClick = (id: any, position: any) => {
-        if (hotspotId === 0 || hotspotId !== id) {
-            setHotspotId(id);
-            setSubproductView((prev: boolean) => !prev);
-        } else if (hotspotId === id) {
-            setSubproductView((prev: boolean) => !prev);
+    const handleHotspotClick = (id: any) => {
+        if (hotspotId === id && subproductView) {
             setHotspotId(0);
+            setSubproductView(false);
+        } else if (hotspotId === id && !subproductView) {
+            setSubproductView(true);
+            setHotspotId(id);
+        } else if (hotspotId !== id && subproductView) {
+            setSubproductView(true);
+            setHotspotId(id);
+        } else {
+            setHotspotId(id);
+            setSubproductView(true);
         }
-        setPosition(position);
-        setClicked(!clicked);
 
         // alert(`Clicked on Hotspot no. ${id}!!`)
     };
@@ -45,12 +45,22 @@ const KomatsuModel = () => {
         <>
             <Canvas
                 className='demo__product-canvas min-h-screen'
-                camera={{position: [-1, 4, 10], fov: 60}}
-                // camera={{position: [0, 0, 0], fov: 80}}
+                camera={{position: [-2, 2.5, 7]}}
             >
-                <ambientLight intensity={2} color='#FFFFFF' />
-                <Suspense fallback={<CanvasLoader/>}>
-                    {/*<color attach="background" args={['#F1F1F1']} />*/}
+                <ambientLight intensity={2} color='#FFFFFF'/>
+                <Suspense fallback={
+                    <h1
+                        style={{
+                            fontSize: 40,
+                            lineHeight: 48,
+                            fontWeight: 800,
+                            color: "#000000",
+                        }}
+                    >
+                        Loading...
+                    </h1>}
+                >
+                    {/*<color attach="background" args={['#B1B1f3']} />*/}
                     <primitive object={fbx} position={[0, -1.25, 0]} rotation={[Math.PI / 2, 0, 0]}/>
                     {KomatsuModelHotspots.map((hotspot, index) => (
                         <Hotspot
@@ -58,10 +68,11 @@ const KomatsuModel = () => {
                             position={hotspot.position}
                             geometryArgs={[0.15, 32, 32]}
                             color="#FFFFFF"
-                            onClick={() => handleHotspotClick(hotspot.id, hotspot.position)}
+                            onClick={() => handleHotspotClick(hotspot.id)}
                         />
                     ))}
                 </Suspense>
+                <Sky/>
 
                 <OrbitControls/>
                 {/*<axesHelper args={[25]}/>*/}
@@ -71,23 +82,23 @@ const KomatsuModel = () => {
     );
 };
 
-const CanvasLoader = () => {
-    const { progress } = useProgress();
-    return (
-        <Html>
-            <span className="canvas-load"/>
-            <p
-                style={{
-                    fontSize: 30,
-                    color: "#000000",
-                    fontWeight: 800,
-                    marginTop: 40,
-                }}
-            >
-                {progress.toFixed(0)}%
-            </p>
-        </Html>
-    );
-};
+// const CanvasLoader = () => {
+//     const {progress} = useProgress();
+//     return (
+//         <Html>
+//             <span className="canvas-load"/>
+//             <p
+//                 style={{
+//                     fontSize: 40,
+//                     lineHeight: 48,
+//                     fontWeight: 800,
+//                     color: "#000000",
+//                 }}
+//             >
+//                 {progress.toFixed(0)}%
+//             </p>
+//         </Html>
+//     );
+// };
 
 export default KomatsuModel;
