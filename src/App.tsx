@@ -11,8 +11,8 @@ const App:React.FC = () => {
         <div className="komatsu-project">
             <SideNavbar/>
             <Routes>
-                <Route exact path='/' element={<KomatsuModel/>}/>
-                <Route exact path='*' element={<ErrorPage/>}/>
+                <Route path='/' element={<KomatsuModel/>}/>
+                <Route path='*' element={<ErrorPage/>}/>
             </Routes>
         </div>
     )
